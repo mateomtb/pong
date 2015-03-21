@@ -1,0 +1,86 @@
+<head>
+  <title>pong</title>
+</head>
+
+<body>
+  <h1>Welcome to WePong!</h1>
+</body>
+
+
+<template name="layout">
+	{{>header}}
+	{{>yield}}
+</template>
+
+
+<template name="home">
+	<h1>Leaderboards</h1>
+
+</template>
+
+<template name="header">
+			{{#if userIsLoggedIn}}<a href="/new-game/">Score a game</a>{{/if}}
+			<a href="/">Home</a>
+			<a href="/games/">All games</a>
+			<a href="/players/">All players</a>
+			{{>loginButtons}}
+</template>
+
+<template name="newGame">
+  <h1>Score a game</h1>
+
+	<a href="#" id="opponentSelectTrigger">Select your opponent!</a>
+
+<div id="opponentSelector">
+	{{#each users}}
+	<li class="opponentUser" data-userid="{{_id}}"><img src="{{services.twitter.profile_image_url}}"/>{{profile.name}}</li>
+	{{/each}}
+</div>
+
+  <form id="new_game">
+	  <h1 id="{{user._id}}">{{user.profile.name}}</h1>
+	  <input type="number" id="p1_score"/> vs
+		<hr>
+		<h1>Versus {{#each opponent}}{{profile.name}}{{/each}}</h1>
+	  	
+	  <input type="number" id="p2_score"/>
+	  <br/>
+	  <input type="submit" for="new_game" id="game_submit"/>
+  </form>
+</template>
+
+<template name="gameDetail">
+  <h1>Game {{game_num}}</h1>
+  <p>{{p1_name}}:{{p1_score}}</p>
+  <p>{{p2_name}}:{{p2_score}}</p>
+</template>
+
+
+<template name="playerDetail">  
+  {{#each player}}
+  <p><img src="{{services.twitter.profile_image_url}}" alt=""/></p>
+    <h1>{{profile.name}}</h1>
+    <p>{{profile.name}} / @{{services.twitter.screenName}}</p>
+  {{/each}}
+</template>
+
+
+<template name="allPlayers">
+  <h1>Players</h1>
+  
+  {{#each players}}
+  	<a href="/players/{{_id}}"><p><img src="{{services.twitter.profile_image_url}}" alt=""/>
+ {{profile.name}} / @{{services.twitter.screenName}}</p></a>
+  {{/each}}
+</template>
+
+
+<template name="allGames">
+  <h1>{{gameTotal}} Games</h1>
+  
+  {{#each games}}
+  	<p>{{p1_name}}:{{p1_score}}</p>
+  	<p>{{p2_name}}:{{p2_score}}</p>
+  	<hr>
+  {{/each}}
+</template>
