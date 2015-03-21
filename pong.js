@@ -127,6 +127,7 @@ if (Meteor.isClient) {
     }
   });
 
+
   Template.playerDetail.helpers({
     player: function () {
       return Meteor.users.find(Session.get('playerSelected')).fetch();
@@ -134,7 +135,7 @@ if (Meteor.isClient) {
   });
 
 
-    Template.header.helpers({
+  Template.header.helpers({
     userIsLoggedIn: function() {
       if(Meteor.user()){
         return true;
@@ -146,6 +147,25 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+
+  // Add wins and loss to profile?
+  //  Accounts.onCreateUser(function(options, user) {
+  //   user.permission = 'default';
+  //   if (options.profile)
+  //     user.profile = options.profile;
+  //   return user;
+  // });
+
+  Accounts.onCreateUser(function(options, user) {
+    // We still want the default hook's 'profile' behavior.
+    options.profile['wins'] = 0;
+    options.profile['losses'] = 0;
+    if (options.profile)
+      user.profile = options.profile;
+    return user;
+  });
+
+  //method for adding games and updating users
   Meteor.methods({
     addGame: function(data){
       Games.insert({
@@ -158,7 +178,14 @@ if (Meteor.isServer) {
       });
 
       //this kills the user!?
-      // Meteor.users.update({_id: data.p1_id}, {'wins':1});
+
+      if(data.p1_score>data.p2_score){
+        Meteor.users.update({_id: data.p1_id}, {$inc: { 'profile.wins': 1}});
+        Meteor.users.update({_id: data.p2_id}, {$inc: { 'profile.losses': 1}});
+      } else {
+        Meteor.users.update({_id: data.p2_id}, {$inc: { 'profile.wins': 1}});
+        Meteor.users.update({_id: data.p1_id}, {$inc: { 'profile.losses': 1}});
+      }
     }
   });
 
