@@ -26,11 +26,11 @@
 </template>
 
 <template name="header">
-			{{#if userIsLoggedIn}}<a href="/new-game/">Score a game</a>{{/if}}
-			<a href="/">Home</a>
+			<a href="/">Leaderboard</a>
 			<a href="/games/">All games</a>
 			<a href="/players/">All players</a>
 			{{>loginButtons}}
+      {{#if userIsLoggedIn}}<a href="/new-game/">Score a game</a>{{/if}}
 </template>
 
 <template name="newGame">

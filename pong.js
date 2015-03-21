@@ -33,7 +33,7 @@ Router.route('/players/', {
     return Players.find().fetch();
   }
 });
-
+  
 //Games 
 Router.route('/games/', {
   name: 'allGames',
@@ -60,7 +60,7 @@ if (Meteor.isClient) {
 
   Template.allGames.helpers({
     games: function() {
-      return Games.find().fetch();
+      return Games.find({}, {sort: {game_num : -1}}).fetch();
     },
     gameTotal: function(){
       return Games.find().fetch().length;
@@ -105,6 +105,8 @@ if (Meteor.isClient) {
         data.loser_id = data.p1_id;
         data.loser_name = data.p1_name;
       }
+
+      data.game_num = Games.find().fetch().length + 1;
 
       Meteor.call('addGame', data, function(error, affectedDocs) {
         if (error) {
@@ -180,7 +182,12 @@ if (Meteor.isServer) {
         p1_name : data.p1_name,
         p2_name : data.p2_name,
         p1_score : data.p1_score,
-        p2_score : data.p2_score
+        p2_score : data.p2_score,
+        winner_id : data.winner_id,
+        winner_name: data.winner_name,
+        loser_id: data.loser_id,
+        loser_name: data.loser_name,
+        game_num: data.game_num
       });
 
       //this kills the user!?
