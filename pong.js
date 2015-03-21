@@ -44,12 +44,18 @@ Router.route('/games/', {
 
 //Root route
 Router.route('/', {
-  name: 'home'
+  name: 'leaderboard'
 });
 
 
 
 if (Meteor.isClient) {
+
+  Template.leaderboard.helpers({
+    leaders: function() {
+      return Meteor.users.find({}, {sort: {'profile.wins': -1}}).fetch();
+    }
+  });
 
 
   Template.allGames.helpers({

@@ -13,9 +13,16 @@
 </template>
 
 
-<template name="home">
-	<h1>Leaderboards</h1>
-
+<template name="leaderboard">
+	<h1>Leaderboard</h1>
+  <ul>
+ {{#each leaders}}
+  <li><p><img src="{{services.twitter.profile_image_url}}" alt=""/></p>
+    <h1>{{profile.name}}</h1>
+    <p>{{profile.name}} / @{{services.twitter.screenName}}</p>
+    <p>Wins: {{profile.wins}} / Losses: {{profile.losses}}</p></li>
+  {{/each}}
+  </ul>
 </template>
 
 <template name="header">
