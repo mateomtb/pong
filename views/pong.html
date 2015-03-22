@@ -15,14 +15,14 @@
 
 <template name="leaderboard">
 	<h1>Leaderboard</h1>
-  <ul>
+  <ol>
  {{#each leaders}}
   <li><p><img src="{{services.twitter.profile_image_url}}" alt=""/></p>
     <h1>{{profile.name}}</h1>
     <p>{{profile.name}} / @{{services.twitter.screenName}}</p>
     <p>Wins: {{profile.wins}} / Losses: {{profile.losses}}</p></li>
   {{/each}}
-  </ul>
+  </ol>
 </template>
 
 <template name="header">
@@ -31,6 +31,10 @@
 			<a href="/players/">All players</a>
 			{{>loginButtons}}
       {{#if userIsLoggedIn}}<a href="/new-game/">Score a game</a>{{/if}}
+</template>
+
+<template name="notFound">
+<h1>fuck! Not found!</h1>
 </template>
 
 <template name="newGame">
@@ -54,12 +58,6 @@
 	  <br/>
 	  <input type="submit" for="new_game" id="game_submit"/>
   </form>
-</template>
-
-<template name="gameDetail">
-  <h1>Game {{game_num}}</h1>
-  <p>{{p1_name}}:{{p1_score}}</p>
-  <p>{{p2_name}}:{{p2_score}}</p>
 </template>
 
 
@@ -86,7 +84,8 @@
   <h1>{{gameTotal}} Games</h1>
   
   {{#each games}}
-  	<p>{{p1_name}}:{{p1_score}}</p>
+  	<p>Game {{game_num}}</p>
+    <p>{{p1_name}}:{{p1_score}}</p>
   	<p>{{p2_name}}:{{p2_score}}</p>
   	<hr>
   {{/each}}
