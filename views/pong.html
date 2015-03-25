@@ -53,7 +53,7 @@
 	  <input type="number" id="p1_score"/> vs
 		<hr>
 		<h1>Versus {{#each opponent}}{{profile.name}}{{/each}}</h1>
-	  	
+
 	  <input type="number" id="p2_score"/>
 	  <br/>
 	  <input type="submit" for="new_game" id="game_submit"/>
@@ -61,7 +61,7 @@
 </template>
 
 
-<template name="playerDetail">  
+<template name="playerDetail">
   {{#each player}}
   <p><img src="{{services.twitter.profile_image_url}}" alt=""/></p>
     <h1>{{profile.name}}</h1>
@@ -72,7 +72,7 @@
 
 <template name="allPlayers">
   <h1>Players</h1>
-  
+
   {{#each players}}
   	<a href="/players/{{_id}}"><p><img src="{{services.twitter.profile_image_url}}" alt=""/>
  {{profile.name}} / @{{services.twitter.screenName}} / Wins: {{profile.wins}} / Losses: {{profile.losses}}</p></a>
@@ -82,7 +82,7 @@
 
 <template name="allGames">
   <h1>{{gameTotal}} Games</h1>
-  
+
   {{#each games}}
   	<p>Game {{game_num}}</p>
     <p>{{p1_name}}:{{p1_score}}</p>
