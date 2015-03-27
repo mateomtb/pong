@@ -26,20 +26,20 @@
 
 
 <template name="home">
-  <div class="home-scoreboard">
-    <div class="home-scoreboardInner">
-      <div class="home-scoreboardLayout">
-        <!-- <h1 class="home-gameCount">Game {{game.game_num}}</h1> -->
-        <div class="home-p1Mod home-pMod home-scoreboardItem">
-          <i class="home-playerName">{{game.p1_name}}</i>
-          <i class="home-playerScore">{{game.p1_score}}</i>
+  <div class="scoreboard">
+    <div class="scoreboardInner">
+      <div class="scoreboardLayout">
+        <!-- <h1 class="gameCount">Game {{game.game_num}}</h1> -->
+        <div class="p1Mod pMod scoreboardItem">
+          <i class="playerName">{{game.p1_name}}</i>
+          <i class="playerScore">{{game.p1_score}}</i>
         </div>
-        <div class="home-scoreboardItem">
-          <h4 class="home-verb">{{verbed}}!</h4>
+        <div class="scoreboardItem">
+          <h4 class="verb">{{verbed}}!</h4>
         </div>
-        <div class="home-p2Mod home-pMod home-scoreboardItem">
-          <i class="home-playerName">{{game.p2_name}}</i>
-          <i class="home-playerScore">{{game.p2_score}}</i>
+        <div class="p2Mod pMod scoreboardItem">
+          <i class="playerName">{{game.p2_name}}</i>
+          <i class="playerScore">{{game.p2_score}}</i>
         </div>
       </div>
     </div>
@@ -48,14 +48,20 @@
 
 
 <template name="leaderboard">
-	<h1>Leaderboard</h1>
   <ol>
+  <div class="leaderboard-mod">
  {{#each leaders}}
-  <li><p><img src="{{services.twitter.profile_image_url}}" alt=""/></p>
-    <h1>{{profile.name}}</h1>
-    <p>{{profile.name}} / @{{services.twitter.screenName}}</p>
-    <p>Wins: {{profile.wins}} / Losses: {{profile.losses}}</p></li>
+    <div class="leaderboardLayout">
+    <li>
+      <div class="img-mod">
+        <img src="{{services.twitter.profile_image_url}}" alt=""/>
+      </div>
+      <h1>{{profile.name}}</h1>
+      <p>{{profile.name}} / @{{services.twitter.screenName}}</p>
+      <p>Wins: {{profile.wins}} / Losses: {{profile.losses}}</p></li>
+   </div>
   {{/each}}
+  </div>
   </ol>
 </template>
 
@@ -125,21 +131,21 @@
 
 
 <template name="allGames">
-  <div class="home-scoreboard">
-    <div class="home-scoreboardInner">
+  <div class="scoreboard">
+    <div class="scoreboardInner">
       {{#each games}}
-      <div class="home-scoreboardLayout">
-        <!-- <h1 class="home-gameCount">Game {{game.game_num}}</h1> -->
-        <div class="home-p1Mod home-pMod home-scoreboardItem">
-          <i class="home-playerName">{{p1_name}}</i>
-          <i class="home-playerScore">{{p1_score}}</i>
+      <div class="scoreboardLayout">
+        <!-- <h1 class="gameCount">Game {{game.game_num}}</h1> -->
+        <div class="p1Mod pMod scoreboardItem">
+          <i class="playerName">{{p1_name}}</i>
+          <i class="playerScore">{{p1_score}}</i>
         </div>
-        <div class="home-scoreboardItem">
-          <h4 class="home-verb">{{verbed}}!</h4>
+        <div class="scoreboardItem">
+          <h4 class="verb">{{verbed}}!</h4>
         </div>
-        <div class="home-p2Mod home-pMod home-scoreboardItem">
-          <i class="home-playerName">{{p2_name}}</i>
-          <i class="home-playerScore">{{p2_score}}</i>
+        <div class="p2Mod pMod scoreboardItem">
+          <i class="playerName">{{p2_name}}</i>
+          <i class="playerScore">{{p2_score}}</i>
         </div>
       </div>
       {{/each}}

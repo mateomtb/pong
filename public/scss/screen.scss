@@ -59,8 +59,21 @@ body {
   }
 }
 
+// leaderboard
 
-.home-scoreboard {
+.leaderboard {
+  background-size: 130px;
+  background-image: url('/img/palm.jpg');
+  &:after {
+    @include pseudo(45vh 0 -100% 0);
+    background: #FBE5EF;
+    transform: skew(0deg, 6deg);
+    z-index: -1;
+  }
+}
+
+.leaderboard-mod,
+.scoreboard {
   display: table;
   border: 5px solid #000;
   background-color: #fff;
@@ -75,13 +88,13 @@ body {
   }
 }
 
-.home-scoreboardInner {
+.scoreboardInner {
   display: table-cell;
   vertical-align: middle;
 }
 
-.home-scoreboardLayout {
-  @include media-grid(3, 0, '.home-scoreboardItem');
+.scoreboardLayout {
+  @include media-grid(3, 0, '.scoreboardItem');
   text-align: center;
   .games & {
     margin-bottom: 60px;
@@ -95,14 +108,14 @@ body {
   }
 }
 
-.home-gameCount {
+.gameCount {
   text-transform: uppercase;
   font-size: 18px;
   margin-bottom: 30px;
   text-align: center;
 }
 
-.home-playerName {
+.playerName {
   text-transform: uppercase;
   font-size: 16px;
   margin-bottom: 10px;
@@ -110,23 +123,16 @@ body {
   display: block;
 }
 
-.home-playerScore {
+.playerScore {
   font-size: 86px;
   font-weight: bold;
 }
 
-.home-verb {
+.verb {
   font-size: 24px;
   text-transform: uppercase;
   margin-top: 50px;
   transform: rotate(-62deg);
-}
-
-// leaderboard
-
-.leaderboard {
-  background-size: 130px;
-  background-image: url('/img/palm.jpg');
 }
 
 .nav {
@@ -140,9 +146,9 @@ body {
 .nav-list {
   width: 50%;
   top: 40%;
-  right: 0;
+  right: 30px;
   position: absolute;
-  text-align: center;
+  text-align: right;
 }
 
 .nav-item {
