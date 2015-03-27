@@ -96,7 +96,7 @@
 	  <h1 id="{{user._id}}">{{user.profile.name}}</h1>
 	  <input type="number" id="p1_score"/> vs
 		<hr>
-		<h1>Versus {{#each opponent}}{{profile.name}}{{/each}}</h1>
+		<h1>Versus {{#each opponent}}<span id="opponentName">{{profile.name}}</span>{{/each}}</h1>
 
 	  <input type="number" id="p2_score"/>
 	  <br/>

@@ -25,6 +25,11 @@ if (Meteor.isClient) {
       data.p2_name = opponent[0].profile.name;
       data.p2_score = $('#p2_score').val();
 
+      //lazy validation
+      if (data.p1_score === data.p2_score) {
+        alert("Can't be a tie, get back to the pong table and settle it, nerds!");
+        return false;
+      }
 
       if(data.p1_score > data.p2_score){
         data.winner_id = data.p1_id;
