@@ -48,21 +48,21 @@
 
 
 <template name="leaderboard">
-  <ol>
+  <ul>
   <div class="leaderboard-mod">
  {{#each leaders}}
-    <div class="leaderboardLayout">
-    <li>
-      <div class="img-mod">
+    <li class="leaderboardLayout">
+      <div class="leaderboard-imgMod">
         <img src="{{services.twitter.profile_image_url}}" alt=""/>
       </div>
-      <h1>{{profile.name}}</h1>
-      <p>{{profile.name}} / @{{services.twitter.screenName}}</p>
-      <p>Wins: {{profile.wins}} / Losses: {{profile.losses}}</p></li>
-   </div>
+      <div class="leaderboard-hgroup">
+        <h1>{{profile.name}}</h1>
+        <h2>@{{services.twitter.screenName}}</h2>
+      </div>
+      <p class="leaderboard-score">{{profile.wins}} - {{profile.losses}}</p></li>
   {{/each}}
   </div>
-  </ol>
+  </ul>
 </template>
 
 <template name="header">
