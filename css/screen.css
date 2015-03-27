@@ -296,6 +296,7 @@ a:focus {
 body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
+  font-weight: bold;
   overflow: hidden;
   background-color: #fff;
   position: relative;
@@ -306,6 +307,11 @@ body {
   font-size: 18px;
   padding: 0px 30px 30px;
   min-height: 100vh;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0 0 10px 0;
 }
 
 .home {
@@ -329,14 +335,14 @@ body {
   z-index: -1;
 }
 
-.games {
+.games, .newGame {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #ffffff));
   background-image: -webkit-linear-gradient(#eeeeee, #ffffff 25vh);
   background-image: linear-gradient(#eeeeee, #ffffff 25vh);
 }
-.games:before {
+.games:before, .newGame:before {
   content: " ";
   display: block;
   position: absolute;
@@ -350,7 +356,7 @@ body {
   background-image: linear-gradient(58deg, #9dfd92 39%, #f3fff1);
   z-index: -1;
 }
-.games:after {
+.games:after, .newGame:after {
   content: " ";
   display: block;
   position: absolute;
@@ -615,6 +621,125 @@ body {
 
 .new-game {
   right: 50px;
+}
+
+#opponentSelectTrigger {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  border: 4px solid #000;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA4NDI5MSIgeTE9IjAuODY1MTA2IiB4Mj0iMS4wODQyOTEiIHkyPSIwLjEzNDg5NCI+PHN0b3Agb2Zmc2V0PSIzOSUiIHN0b3AtY29sb3I9IiM5ZGZkOTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmM2ZmZjEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-linear-gradient(32deg, #9dfd92 39%, #f3fff1);
+  background-image: linear-gradient(58deg, #9dfd92 39%, #f3fff1);
+  box-shadow: rgba(0, 0, 0, 0.5) 10px 10px 0;
+  padding: 10px;
+  display: none;
+}
+#opponentSelectTrigger:hover {
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 0;
+  background-image: url("/img/gold.jpg");
+}
+#opponentSelectTrigger.active {
+  display: block;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+    letter-spacing: 5px;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+    letter-spacing: 5px;
+  }
+}
+.versus {
+  padding: 10px 0;
+  letter-spacing: 10px;
+  animation: blink 0.1s steps(5, start) infinite;
+  -webkit-animation: blink 0.5s steps(5, start) infinite;
+}
+
+.number-input {
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+input[type='submit'] {
+  border: 4px solid #000;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA4NDI5MSIgeTE9IjAuODY1MTA2IiB4Mj0iMS4wODQyOTEiIHkyPSIwLjEzNDg5NCI+PHN0b3Agb2Zmc2V0PSIzOSUiIHN0b3AtY29sb3I9IiM5ZGZkOTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmM2ZmZjEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-linear-gradient(32deg, #9dfd92 39%, #f3fff1);
+  background-image: linear-gradient(58deg, #9dfd92 39%, #f3fff1);
+  box-shadow: rgba(0, 0, 0, 0.5) 10px 10px 0;
+  padding: 10px;
+}
+input[type='submit']:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 0;
+  background-image: url("/img/gold.jpg");
+}
+
+#opponentSelector {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  box-shadow: 3px 3px 10px #EEE;
+  background-color: #FFF;
+  margin-top: -100%;
+  -webkit-transition: all .5s ease-in-out;
+          transition: all .5s ease-in-out;
+  position: absolute;
+}
+#opponentSelector.active {
+  margin-top: 0%;
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.opponentUsers li {
+  cursor: pointer;
+  list-style-type: none;
+  float: left;
+  display: block;
+  margin: 0 30px 30px 0;
+  padding: 10px;
+}
+.opponentUsers li:hover {
+  background-image: url("/img/gold.jpg");
+}
+.opponentUsers li:hover img {
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+.opponentUsers li img {
+  border-radius: 200px;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 0;
+  margin-right: 10px;
+}
+
+#gameForm {
+  display: none;
+}
+#gameForm.active {
+  display: block;
 }
 
 #login-buttons .login-buttons-with-only-one-button .login-button {

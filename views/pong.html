@@ -88,26 +88,43 @@
 </template>
 
 <template name="newGame">
-  <h1>Score a game</h1>
 
-	<a href="#" id="opponentSelectTrigger">Select your opponent!</a>
+  <div class="scoreboard" style="background-image: url(/img/404/{{gifs}}); background-size: cover;">
+    <div class="scoreboardInner">
+      <div class="scoreboardLayout">
+	<a href="#" id="opponentSelectTrigger" class="active">Select your opponent!</a>
 
 <div id="opponentSelector">
+<h1><marquee>Click a nerd!</marquee></h1>
+<ul class="opponentUsers">
 	{{#each users}}
 	<li class="opponentUser" data-userid="{{_id}}"><img src="{{services.twitter.profile_image_url}}"/>{{profile.name}}</li>
 	{{/each}}
+  </ul>
 </div>
 
+<div id="gameForm">
   <form id="new_game">
-	  <h1 id="{{user._id}}">{{user.profile.name}}</h1>
-	  <input type="number" id="p1_score"/> vs
-		<hr>
-		<h1>Versus {{#each opponent}}<span id="opponentName">{{profile.name}}</span>{{/each}}</h1>
-
-	  <input type="number" id="p2_score"/>
+    <div class="form-top">
+  	  <h1 id="{{user._id}}">YOU: ({{user.profile.name}})</h1>
+  	  <input class="number-input" type="number" id="p1_score"/>
+    </div>
+    <div class="versus">
+      <blink>VERSUS</blink>
+    </div>
+    <div class="form-bottom">
+  		<h1>Versus {{#each opponent}}<span id="opponentName">{{profile.name}}</span>{{/each}}</h1>
+  	  <input class="number-input" type="number" id="p2_score"/>
+    </div>
 	  <br/>
 	  <input type="submit" for="new_game" id="game_submit"/>
   </form>
+</div><!-- gameform -->
+
+      </div>
+    </div>
+  </div>
+
 </template>
 
 

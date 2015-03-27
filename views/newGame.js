@@ -8,6 +8,10 @@ if (Meteor.isClient) {
     },
     opponent : function(){
       return Meteor.users.find(Session.get('opponentUser')).fetch();
+    },
+    gifs: function() {
+      $('body').attr('class', 'newGame');
+      return Gifs();
     }
   });
 
@@ -56,11 +60,13 @@ if (Meteor.isClient) {
 
     'click #opponentSelectTrigger' : function() {
       $("#opponentSelector").toggleClass("active");
+      $("#opponentSelectTrigger").toggleClass("active");
     },
 
     'click .opponentUser' : function() {
       console.log($(this)[0]._id);
       $("#opponentSelector").toggleClass("active");
+      $("#gameForm").toggleClass("active");
       Session.set('opponentUser', $(this)[0]._id);
     }
   });
