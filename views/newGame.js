@@ -35,16 +35,13 @@ if (Meteor.isClient) {
         return false;
       }
 
-      if (data.p1_score === "" | data.p2_score === ""){
-        alert("Can't be empty! Enter some WHOLE NUMBERs!");
+      if (!isNaN(parseInt(data.p1_score * 1)) === false){
+        alert("Enter REAL NUMBERS PLS THX");
+        return false;
+      } else if (!isNaN(parseInt(data.p2_score * 1)) === false){
+        alert("Enter REAL NUMBERS PLS THX");
         return false;
       }
-
-      if (data.p1_score < 0 | data.p2_score < 0){
-        alert("Can't be negative! Enter a POSITIVE WHOLE NUMBER!");
-        return false;
-      }
-
 
       if(data.p1_score > data.p2_score){
         data.winner_id = data.p1_id;
@@ -58,7 +55,7 @@ if (Meteor.isClient) {
         data.winner_id = data.p2_id;
         data.winner_name = data.p2_name;
         data.winner_score = data.p2_score;
-        
+
         data.loser_id = data.p1_id;
         data.loser_name = data.p1_name;
         data.loser_score = data.p1_score;
@@ -71,7 +68,6 @@ if (Meteor.isClient) {
           console.log(error.message);
         } else {
           console.log('opp stats added');
-          Router.go('allGames');
         }
       });
     },
