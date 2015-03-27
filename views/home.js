@@ -4,7 +4,9 @@ if (Meteor.isClient) {
       $('body').attr('class', 'home');
       lastGame = Games.find().fetch().length;
       return Games.findOne({'game_num' : lastGame});
-
+    },
+    verbed: function() {
+		return Verbs();
     }
   });
 }
