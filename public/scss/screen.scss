@@ -32,13 +32,8 @@ body {
 // home
 .home {
   background-size: 20px;
+  @include background-image(linear-gradient(#eee , #fff 25vh));
   // background-image: url('/img/checkers.png');
-  &:before {
-    @include pseudo(30px 0 n 0);
-    height: 120px;
-    z-index: -1;
-    @include background-image(linear-gradient(#f8f8f8 , #fff));
-  }
   &:after {
     @include pseudo(45vh 0 -100% 0);
     @include background-image(linear-gradient(58deg, #0000ff 39%, #b7b9fd));
@@ -48,6 +43,8 @@ body {
 }
 
 .games {
+
+  @include background-image(linear-gradient(#eee , #fff 25vh));
   &:before {
     @include pseudo(25vh 0 -100% 0);
     @include background-image(linear-gradient(58deg, #9DFD92 39%, #F3FFF1));
@@ -58,6 +55,7 @@ body {
     background-image: url('/img/mask.svg');
     background-repeat: no-repeat;
     z-index: -1;
+    margin-top: -1px;
   }
 }
 
@@ -72,6 +70,9 @@ body {
   margin: 0 auto;
   min-height: 50vh;
   margin-top: 25vh;
+  .games & {
+    margin-bottom: 100px;
+  }
 }
 
 .home-scoreboardInner {
@@ -82,6 +83,11 @@ body {
 .home-scoreboardLayout {
   @include media-grid(3, 0, '.home-scoreboardItem');
   text-align: center;
+  .games & {
+    margin-bottom: 60px;
+    border-bottom: 3px dashed #ddd;
+    padding-bottom: 60px;
+  }
 }
 
 .home-gameCount {
@@ -224,7 +230,7 @@ body {
   background-image: url('/img/pingpongBall.png');
   background-size: 100%;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   &:hover {
     background-image: url('/img/gold.jpg');
   }
@@ -232,6 +238,10 @@ body {
     @include size(160px);
       bottom: 0;
       left: 50%;
+      display: none;
+      .home & {
+        display: block;
+      }
   }
   &:nth-child(2) {
     @include size(100px);
@@ -246,7 +256,9 @@ body {
 }
 
 .pingpong-paddle {
-  @include absolute(n 0 55% n);
+  position: fixed;
+  bottom: 55%;
+  right: 0;
   z-index: 9999;
   @include size(175px 215px);
   background-size: 100%;
