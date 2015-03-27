@@ -315,12 +315,7 @@ h1 {
 }
 
 .home {
-  background-size: 20px;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(#eeeeee, #ffffff 25vh);
-  background-image: linear-gradient(#eeeeee, #ffffff 25vh);
+  background-image: url("/img/marble.jpg");
 }
 .home:after {
   content: " ";
@@ -330,10 +325,10 @@ h1 {
   right: 0;
   bottom: -100%;
   left: 0;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA4NDI5MSIgeTE9IjAuODY1MTA2IiB4Mj0iMS4wODQyOTEiIHkyPSIwLjEzNDg5NCI+PHN0b3Agb2Zmc2V0PSIzOSUiIHN0b3AtY29sb3I9IiMwMDAwZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiN2I5ZmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA4NDI5MSIgeTE9IjAuODY1MTA2IiB4Mj0iMS4wODQyOTEiIHkyPSIwLjEzNDg5NCI+PHN0b3Agb2Zmc2V0PSIzOSUiIHN0b3AtY29sb3I9IiMwMDAwZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjAwMDAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
-  background-image: -webkit-linear-gradient(32deg, #0000ff 39%, #b7b9fd);
-  background-image: linear-gradient(58deg, #0000ff 39%, #b7b9fd);
+  background-image: -webkit-linear-gradient(32deg, #0000ff 39%, #ff0000);
+  background-image: linear-gradient(58deg, #0000ff 39%, #ff0000);
   -webkit-transform: skew(0deg, -10deg);
       -ms-transform: skew(0deg, -10deg);
           transform: skew(0deg, -10deg);
@@ -488,7 +483,7 @@ h1 {
   float: right;
   text-align: center;
   font-weight: bold;
-  color: #9DFD92;
+  color: #BDEEC5;
   font-size: 65px;
   line-height: 100%;
 }
@@ -507,10 +502,18 @@ h1 {
   font-weight: bold;
   display: block;
 }
+.p1Mod .playerName {
+  animation: blink2 1s infinite;
+  -webkit-animation: blink2 1s infinite;
+}
 
 .playerScore {
   font-size: 86px;
   font-weight: bold;
+}
+.p1Mod .playerScore {
+  animation: blink2 1s infinite;
+  -webkit-animation: blink2 1s infinite;
 }
 
 .verb {
@@ -662,6 +665,34 @@ h1 {
     letter-spacing: 5px;
   }
 }
+@keyframes blink2 {
+  0% {
+    letter-spacing: 0;
+    color: red;
+  }
+  50% {
+    letter-spacing: 5px;
+    color: green;
+  }
+  100% {
+    letter-spacing: 0;
+    color: red;
+  }
+}
+@-webkit-keyframes blink2 {
+  0% {
+    letter-spacing: 0;
+    color: red;
+  }
+  50% {
+    letter-spacing: 5px;
+    color: blue;
+  }
+  100% {
+    letter-spacing: 0;
+    color: red;
+  }
+}
 .versus {
   padding: 10px 0;
   letter-spacing: 10px;
@@ -753,23 +784,28 @@ input[type='submit']:hover {
 
 .login-display-name {
   position: fixed;
-  bottom: 81px;
-  left: -51px;
+  bottom: 64px;
+  left: -28px;
   font-weight: bold;
   text-transform: uppercase;
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
   z-index: 999;
+  font-size: 12px;
 }
 
 .pingpong-item {
+  -webkit-animation: spin 3s linear infinite;
+          animation: spin 3s linear infinite;
   background-image: url("/img/pingpongBall.png");
   background-size: 100%;
   border-radius: 50%;
   position: fixed;
 }
 .pingpong-item:hover {
+  -webkit-animation: none;
+          animation: none;
   background-image: url("/img/gold.jpg");
 }
 .pingpong-item:first-child {
@@ -804,4 +840,14 @@ input[type='submit']:hover {
   height: 215px;
   background-size: 100%;
   background-image: url("/img/paddle.png");
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  -webkit-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+.pingpong-paddle:hover {
+  -webkit-transform: translate3D(10px, -30px, -10px) rotate(3deg);
+      -ms-transform: translate3D(10px, -30px, -10px) rotate(3deg);
+          transform: translate3D(10px, -30px, -10px) rotate(3deg);
 }

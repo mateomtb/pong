@@ -36,12 +36,12 @@ h1 {
 
 // home
 .home {
-  background-size: 20px;
-  @include background-image(linear-gradient(#eee , #fff 25vh));
-  // background-image: url('/img/checkers.png');
+  // background-size: 20px;
+  // @include background-image(linear-gradient(#eee , #fff 25vh));
+  background-image: url('/img/marble.jpg');
   &:after {
     @include pseudo(45vh 0 -100% 0);
-    @include background-image(linear-gradient(58deg, #0000ff 39%, #b7b9fd));
+    @include background-image(linear-gradient(58deg, #0000ff 39%, #ff0000));
     transform: skew(0deg, -10deg);
     z-index: -1;
   }
@@ -145,7 +145,7 @@ h1 {
   float: right;
   text-align: center;
   font-weight: bold;
-  color: #9DFD92;
+  color: #BDEEC5;
   font-size: 65px;
   line-height: 100%;
 }
@@ -165,11 +165,19 @@ h1 {
   margin-bottom: 10px;
   font-weight: bold;
   display: block;
+  .p1Mod & {
+  animation: blink2 1s infinite;
+  -webkit-animation: blink2 1s infinite;
+  }
 }
 
 .playerScore {
   font-size: 86px;
   font-weight: bold;
+  .p1Mod & {
+  animation: blink2 1s infinite;
+  -webkit-animation: blink2 1s infinite;
+  }
 }
 
 .verb {
@@ -321,6 +329,36 @@ h1 {
   }
 }
 
+
+@keyframes blink2 {
+    0% {
+      letter-spacing: 0;
+      color: red;
+    }
+    50% {
+      letter-spacing: 5px;
+      color: green;
+    }
+    100% {
+      letter-spacing: 0;
+      color: red;
+    }
+}
+@-webkit-keyframes blink2 {
+    0% {
+      letter-spacing: 0;
+      color: red;
+    }
+    50% {
+      letter-spacing: 5px;
+      color: blue;
+    }
+    100% {
+      letter-spacing: 0;
+      color: red;
+    }
+}
+
 .versus {
   padding: 10px 0;
   letter-spacing: 10px;
@@ -411,20 +449,24 @@ input[type='submit'] {
 
 .login-display-name {
   position: fixed;
-  bottom: 81px;
-  left: -51px;
+  bottom: 64px;
+  left: -28px;
   font-weight: bold;
   text-transform: uppercase;
   transform: rotate(-90deg);
   z-index: 999;
+  font-size: 12px;
 }
 
+
 .pingpong-item {
+  animation:spin 3s linear infinite;
   background-image: url('/img/pingpongBall.png');
   background-size: 100%;
   border-radius: 50%;
   position: fixed;
   &:hover {
+    animation:none;
     background-image: url('/img/gold.jpg');
   }
   &:first-child {
@@ -456,6 +498,12 @@ input[type='submit'] {
   @include size(175px 215px);
   background-size: 100%;
   background-image: url('/img/paddle.png');
+  @include trans(.15s, all, ease);
+  transform-origin: bottom right;
+  &:hover {
+    transform: translate3D(10px, -30px, -10px) rotate(3deg);
+
+  }
 }
 
 
