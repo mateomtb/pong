@@ -31,15 +31,15 @@
       <div class="scoreboardLayout">
         <!-- <h1 class="gameCount">Game {{game.game_num}}</h1> -->
         <div class="p1Mod pMod scoreboardItem">
-          <i class="playerName">{{game.p1_name}}</i>
-          <i class="playerScore">{{game.p1_score}}</i>
+          <i class="playerName">{{game.winner_name}}</i>
+          <i class="playerScore">{{game.winner_score}}</i>
         </div>
         <div class="scoreboardItem">
           <h4 class="verb">{{verbed}}!</h4>
         </div>
         <div class="p2Mod pMod scoreboardItem">
-          <i class="playerName">{{game.p2_name}}</i>
-          <i class="playerScore">{{game.p2_score}}</i>
+          <i class="playerName">{{game.loser_name}}</i>
+          <i class="playerScore">{{game.loser_score}}</i>
         </div>
       </div>
     </div>
@@ -154,15 +154,15 @@
       <div class="scoreboardLayout">
         <!-- <h1 class="gameCount">Game {{game.game_num}}</h1> -->
         <div class="p1Mod pMod scoreboardItem">
-          <i class="playerName">{{p1_name}}</i>
-          <i class="playerScore">{{p1_score}}</i>
+          <i class="playerName">{{winner_name}}</i>
+          <i class="playerScore">{{winner_score}}</i>
         </div>
         <div class="scoreboardItem">
           <h4 class="verb">{{verbed}}!</h4>
         </div>
         <div class="p2Mod pMod scoreboardItem">
-          <i class="playerName">{{p2_name}}</i>
-          <i class="playerScore">{{p2_score}}</i>
+          <i class="playerName">{{loser_name}}</i>
+          <i class="playerScore">{{loser_score}}</i>
         </div>
       </div>
       {{/each}}
