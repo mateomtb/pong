@@ -1,16 +1,2 @@
 /* CSS declarations go here */
 
-#opponentSelector {
-	width: 50%;
-	height: 50%;
-	padding: 20px;
-	box-shadow: 3px 3px 10px #EEE;
-	background-color: #FFF;
-	position: absolute;
-	margin-top: -100%;
-	transition: all .5s ease-in-out;
-}
-
-#opponentSelector.active {
-	margin-top: 0;
-}
