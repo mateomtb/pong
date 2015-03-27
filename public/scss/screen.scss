@@ -165,11 +165,19 @@ h1 {
   margin-bottom: 10px;
   font-weight: bold;
   display: block;
+  .p1Mod & {
+  animation: blink2 1s infinite;
+  -webkit-animation: blink2 1s infinite;
+  }
 }
 
 .playerScore {
   font-size: 86px;
   font-weight: bold;
+  .p1Mod & {
+  animation: blink2 1s infinite;
+  -webkit-animation: blink2 1s infinite;
+  }
 }
 
 .verb {
@@ -313,6 +321,36 @@ h1 {
     visibility: hidden;
     letter-spacing: 5px;
   }
+}
+
+
+@keyframes blink2 {
+    0% {
+      letter-spacing: 0;
+      color: red;
+    }
+    50% {
+      letter-spacing: 5px;
+      color: green;
+    }
+    100% {
+      letter-spacing: 0;
+      color: red;
+    }
+}
+@-webkit-keyframes blink2 {
+    0% {
+      letter-spacing: 0;
+      color: red;
+    }
+    50% {
+      letter-spacing: 5px;
+      color: blue;
+    }
+    100% {
+      letter-spacing: 0;
+      color: red;
+    }
 }
 
 .versus {
