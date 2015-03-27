@@ -48,14 +48,20 @@ if (Meteor.isClient) {
 
       if(data.p1_score > data.p2_score){
         data.winner_id = data.p1_id;
-        data.winner_name = data.p2_name;
+        data.winner_name = data.p1_name;
+        data.winner_score = data.p1_score;
+
         data.loser_id = data.p2_id;
         data.loser_name = data.p2_name;
+        data.loser_score = data.p2_score;
       } else {
         data.winner_id = data.p2_id;
         data.winner_name = data.p2_name;
+        data.winner_score = data.p2_score;
+        
         data.loser_id = data.p1_id;
         data.loser_name = data.p1_name;
+        data.loser_score = data.p1_score;
       }
 
       data.game_num = Games.find().fetch().length + 1;
