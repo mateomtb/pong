@@ -165,6 +165,7 @@ h1 {
   margin-bottom: 10px;
   font-weight: bold;
   display: block;
+  white-space: nowrap;
   .p1Mod & {
   animation: blink2 1s infinite;
   -webkit-animation: blink2 1s infinite;
@@ -337,7 +338,7 @@ h1 {
     }
     50% {
       letter-spacing: 5px;
-      color: green;
+      color: blue;
     }
     100% {
       letter-spacing: 0;

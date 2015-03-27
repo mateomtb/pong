@@ -501,6 +501,7 @@ h1 {
   margin-bottom: 10px;
   font-weight: bold;
   display: block;
+  white-space: nowrap;
 }
 .p1Mod .playerName {
   animation: blink2 1s infinite;
@@ -626,6 +627,11 @@ h1 {
 #login-buttons .login-buttons-with-only-one-button .login-button:focus {
   outline: 0;
 }
+.new-game:hover,
+#login-buttons .login-buttons-with-only-one-button .login-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 0;
+  background-image: url("/img/gold.jpg");
+}
 
 .new-game {
   right: 50px;
@@ -672,7 +678,7 @@ h1 {
   }
   50% {
     letter-spacing: 5px;
-    color: green;
+    color: blue;
   }
   100% {
     letter-spacing: 0;
