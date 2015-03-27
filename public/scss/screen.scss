@@ -213,7 +213,13 @@ h1 {
 }
 
 .nav-link {
-  padding-bottom: 3px;
+  padding: 7px 15px;
+    border: 3px solid rgba(0,0,0,0);
+  &:hover {
+      box-shadow: rgba(0,0,0,.5) 5px 5px 0;
+      background-image: url('/img/gold.jpg');
+    border: 3px solid black;
+  }
 }
 .games .nav-link--games {
   border-bottom: 3px solid black;
@@ -493,6 +499,7 @@ input[type='submit'] {
 
 .pingpong-paddle {
   position: fixed;
+
   bottom: 55%;
   right: 0;
   z-index: 9999;
