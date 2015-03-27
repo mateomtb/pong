@@ -445,6 +445,48 @@ body {
   padding-bottom: 0px;
 }
 
+.leaderboardLayout {
+  margin-bottom: 30px;
+  border-bottom: 3px dashed #ddd;
+  padding-bottom: 30px;
+  *zoom: 1;
+}
+.leaderboardLayout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.leaderboardLayout:last-child {
+  margin-bottom: 0px;
+  border-bottom: 0px dashed #ddd;
+  padding-bottom: 0px;
+}
+
+.leaderboard-imgMod {
+  float: left;
+  margin-right: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 7px solid #000;
+}
+
+.leaderboard-hgroup {
+  padding: 10px 0;
+  float: left;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.leaderboard-score {
+  width: 50%;
+  float: right;
+  text-align: center;
+  font-weight: bold;
+  color: #9DFD92;
+  font-size: 65px;
+  line-height: 100%;
+}
+
 .gameCount {
   text-transform: uppercase;
   font-size: 18px;
@@ -582,6 +624,18 @@ body {
 
 #login-buttons .login-buttons-with-only-one-button .login-button {
   left: 50px;
+}
+
+.login-display-name {
+  position: fixed;
+  bottom: 81px;
+  left: -51px;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  z-index: 999;
 }
 
 .pingpong-item {
