@@ -87,6 +87,11 @@ body {
     margin-bottom: 60px;
     border-bottom: 3px dashed #ddd;
     padding-bottom: 60px;
+    &:last-child {
+        margin-bottom: 0px;
+        border-bottom: 0px dashed #ddd;
+        padding-bottom: 0px;
+    }
   }
 }
 

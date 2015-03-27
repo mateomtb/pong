@@ -418,6 +418,11 @@ body {
   border-bottom: 3px dashed #ddd;
   padding-bottom: 60px;
 }
+.games .home-scoreboardLayout:last-child {
+  margin-bottom: 0px;
+  border-bottom: 0px dashed #ddd;
+  padding-bottom: 0px;
+}
 
 .home-gameCount {
   text-transform: uppercase;
