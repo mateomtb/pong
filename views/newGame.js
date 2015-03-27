@@ -35,6 +35,17 @@ if (Meteor.isClient) {
         return false;
       }
 
+      if (data.p1_score === "" | data.p2_score === ""){
+        alert("Can't be empty! Enter some WHOLE NUMBERs!");
+        return false;
+      }
+
+      if (data.p1_score < 0 | data.p2_score < 0){
+        alert("Can't be negative! Enter a POSITIVE WHOLE NUMBER!");
+        return false;
+      }
+
+
       if(data.p1_score > data.p2_score){
         data.winner_id = data.p1_id;
         data.winner_name = data.p2_name;
@@ -54,11 +65,15 @@ if (Meteor.isClient) {
           console.log(error.message);
         } else {
           console.log('opp stats added');
+          Router.go('allGames');
         }
       });
     },
 
     'click #opponentSelectTrigger' : function() {
+      var userId = Meteor.user()._id;
+      $("#"+userId).hide();
+
       $("#opponentSelector").toggleClass("active");
       $("#opponentSelectTrigger").toggleClass("active");
     },

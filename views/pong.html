@@ -98,7 +98,7 @@
 <h1><marquee>Click a nerd!</marquee></h1>
 <ul class="opponentUsers">
 	{{#each users}}
-	<li class="opponentUser" data-userid="{{_id}}"><img src="{{services.twitter.profile_image_url}}"/>{{profile.name}}</li>
+	<li class="opponentUser" id="{{_id}}" data-userid="{{_id}}"><img src="{{services.twitter.profile_image_url}}"/>{{profile.name}}</li>
 	{{/each}}
   </ul>
 </div>
