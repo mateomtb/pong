@@ -6,6 +6,9 @@ if (Meteor.isClient) {
     },
     gameTotal: function(){
       return Games.find().fetch().length;
+    },
+    verbed: function() {
+    return Verbs();
     }
   });
 }

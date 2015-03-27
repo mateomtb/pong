@@ -125,12 +125,24 @@
 
 
 <template name="allGames">
-  <h1>{{gameTotal}} Games</h1>
-
-  {{#each games}}
-  	<p>Game {{game_num}}</p>
-    <p>{{p1_name}}:{{p1_score}}</p>
-  	<p>{{p2_name}}:{{p2_score}}</p>
-  	<hr>
-  {{/each}}
+  <div class="home-scoreboard">
+    <div class="home-scoreboardInner">
+      {{#each games}}
+      <div class="home-scoreboardLayout">
+        <!-- <h1 class="home-gameCount">Game {{game.game_num}}</h1> -->
+        <div class="home-p1Mod home-pMod home-scoreboardItem">
+          <i class="home-playerName">{{p1_name}}</i>
+          <i class="home-playerScore">{{p1_score}}</i>
+        </div>
+        <div class="home-scoreboardItem">
+          <h4 class="home-verb">{{verbed}}!</h4>
+        </div>
+        <div class="home-p2Mod home-pMod home-scoreboardItem">
+          <i class="home-playerName">{{p2_name}}</i>
+          <i class="home-playerScore">{{p2_score}}</i>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </template>
