@@ -3,13 +3,47 @@
 </head>
 
 <body>
-  <h1>Welcome to WePong!</h1>
+<ul class="borders">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<ul class="pingpong-list">
+  <li class="pingpong-item"></li>
+  <li class="pingpong-item"></li>
+  <li class="pingpong-item"></li>
+  <li class="pingpong-paddle"></li>
+</ul>
 </body>
 
 
 <template name="layout">
 	{{>header}}
 	{{>yield}}
+</template>
+
+
+<template name="home">
+  <div class="home-scoreboard">
+    <div class="home-scoreboardInner">
+      <div class="home-scoreboardLayout">
+        <!-- <h1 class="home-gameCount">Game {{game.game_num}}</h1> -->
+        <div class="home-p1Mod home-pMod home-scoreboardItem">
+          <i class="home-playerName">{{game.p1_name}}</i>
+          <i class="home-playerScore">{{game.p1_score}}</i>
+        </div>
+        <div class="home-scoreboardItem">
+          <h4 class="home-verb">Destroyed!</h4>
+        </div>
+        <div class="home-p2Mod home-pMod home-scoreboardItem">
+          <i class="home-playerName">{{game.p2_name}}</i>
+          <i class="home-playerScore">{{game.p2_score}}</i>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
@@ -26,11 +60,21 @@
 </template>
 
 <template name="header">
-			<a href="/">Leaderboard</a>
-			<a href="/games/">All games</a>
-			<a href="/players/">All players</a>
-			{{>loginButtons}}
-      {{#if userIsLoggedIn}}<a href="/new-game/">Score a game</a>{{/if}}
+  <div class="nav">
+    <div class="logoMod">
+      <a href="/" class="logo">
+        <img src="/img/logo.svg">
+      </a>
+    </div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="/games/" class="nav-link nav-link--games">All games</a></li>
+      <li class="nav-item"><a href="/leaderboard/" class="nav-link nav-link--leaderboard">Leaderboard</a></li>
+    </ul>
+
+  </div>
+  <a href=""></a>
+	{{>loginButtons}}
+  {{#if userIsLoggedIn}}<a href="/new-game/" class="new-game">Score a game</a>{{/if}}
 </template>
 
 <template name="notFound">

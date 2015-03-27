@@ -1,5 +1,257 @@
 @import "base";
 
+
+// helper stuff
+a     {   text-decoration: none; color: inherit; }
+strong  { font-weight: bold;  }
+em    { font-style: italic; }
+i     {   font-style: normal; }
+
+a:focus { outline: 0; }
+
 body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  overflow: hidden;
   background-color: #fff;
+  position: relative;
+  color: #000;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;;
+  max-width: 1500px;
+  margin: 0 auto;
+  font-size: 18px;
+  padding: 0px 30px 30px;
+  min-height: 100vh;
 }
+
+// real deal
+
+
+
+
+// home
+.home {
+  background-size: 20px;
+  // background-image: url('/img/checkers.png');
+  &:before {
+    @include pseudo(30px 0 n 0);
+    height: 120px;
+    z-index: -1;
+    @include background-image(linear-gradient(#f8f8f8 , #fff));
+  }
+  &:after {
+    @include pseudo(45vh 0 -100% 0);
+    @include background-image(linear-gradient(58deg, #0000ff 39%, #b7b9fd));
+    transform: skew(0deg, -10deg);
+    z-index: -1;
+  }
+}
+
+.games {
+  &:before {
+    @include pseudo(25vh 0 -100% 0);
+    @include background-image(linear-gradient(58deg, #9DFD92 39%, #F3FFF1));
+    z-index: -1;
+  }
+  &:after {
+    @include pseudo(25vh 0 -100% 0);
+    background-image: url('/img/mask.svg');
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+}
+
+
+.home-scoreboard {
+  display: table;
+  border: 5px solid #000;
+  background-color: #fff;
+  padding: 50px 70px;
+  width: 70%;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 50vh;
+  margin-top: 25vh;
+}
+
+.home-scoreboardInner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.home-scoreboardLayout {
+  @include media-grid(3, 0, '.home-scoreboardItem');
+  text-align: center;
+}
+
+.home-gameCount {
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.home-playerName {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  display: block;
+}
+
+.home-playerScore {
+  font-size: 86px;
+  font-weight: bold;
+}
+
+.home-verb {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  transform: rotate(-62deg);
+}
+
+// leaderboard
+
+.leaderboard {
+  background-size: 130px;
+  background-image: url('/img/palm.jpg');
+}
+
+.nav {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  padding: 10px;
+}
+
+.nav-list {
+  width: 50%;
+  top: 40%;
+  right: 0;
+  position: absolute;
+  text-align: center;
+}
+
+.nav-item {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0 15px;
+}
+
+.nav-link {
+  padding-bottom: 3px;
+}
+.games .nav-link--games {
+  border-bottom: 3px solid black;
+}
+.leaderboard .nav-link--leaderboard {
+  border-bottom: 3px solid black;
+}
+
+.logoMod {
+  width: 40%;
+}
+
+.borders li {
+  position: fixed;
+  z-index: 999;
+  background-color: #fff;
+  &:first-child{
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 30px;
+  }
+  &:nth-child(2){
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 30px;
+  }
+  &:nth-child(3){
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+  }
+  &:nth-child(4){
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 30px;
+  }
+}
+
+// log in
+
+.login-image {
+  display: none !important;
+}
+
+#login-buttons .text-besides-image {
+  margin-left: 0;
+}
+
+.new-game,
+#login-buttons .login-buttons-with-only-one-button .login-button {
+  @include input-default;
+  position: fixed;
+  bottom: 50px;
+  padding: 8px 20px;
+  background-color: #fff;
+  color: #000;
+  border: 3px solid;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.5;
+  z-index: 999;
+}
+
+
+.new-game {
+  right: 50px;
+}
+#login-buttons .login-buttons-with-only-one-button .login-button {
+  left: 50px;
+}
+
+.pingpong-item {
+  background-image: url('/img/pingpongBall.png');
+  background-size: 100%;
+  border-radius: 50%;
+  position: absolute;
+  &:hover {
+    background-image: url('/img/gold.jpg');
+  }
+  &:first-child {
+    @include size(160px);
+      bottom: 0;
+      left: 50%;
+  }
+  &:nth-child(2) {
+    @include size(100px);
+      bottom: 18%;
+      left: 10%;
+  }
+  &:nth-child(3) {
+    @include size(50px);
+    right: 10%;
+    top: 50%;
+  }
+}
+
+.pingpong-paddle {
+  @include absolute(n 0 55% n);
+  z-index: 9999;
+  @include size(175px 215px);
+  background-size: 100%;
+  background-image: url('/img/paddle.png');
+}
+
+
+
